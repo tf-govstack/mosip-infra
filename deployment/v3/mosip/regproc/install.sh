@@ -26,7 +26,7 @@ function installing_regproc() {
   helm -n $NS install regproc-salt mosip/regproc-salt --set image.repository=technogovstack/kernel-salt-generator --set image.tag=release-1.2.0.1.1 --version $SALTGEN_CHART_VERSION
 
   echo Installing regproc-workflow
-  helm -n $NS install regproc-workflow mosip/regproc-workflow --set image.repository=technogovstack/registration-processor-workflow-manager-service --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
+  helm -n $NS install regproc-workflow mosip/regproc-workflow --set image.repository=tfgovstackdev/registration-processor-workflow-manager-service --set image.tag=tf-develop --version $CHART_VERSION
 
   echo Installing regproc-status
   helm -n $NS install regproc-status mosip/regproc-status --set image.repository=technogovstack/registration-processor-registration-status-service --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
