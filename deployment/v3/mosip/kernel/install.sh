@@ -32,7 +32,7 @@ function installing_kernel() {
 
   ADMIN_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-admin-host})
   echo Installing masterdata and allowing Admin UI to access masterdata services.
-  helm -n $NS install masterdata mosip/masterdata --set image.repository=technogovstack/kernel-masterdata-service --set image.tag=release-1.2.0.1.1 --set istio.corsPolicy.allowOrigins\[0\].exact=https://$ADMIN_HOST --version $CHART_VERSION
+  helm -n $NS install masterdata mosip/masterdata --set image.repository=tfgovstackdev/kernel-masterdata-service --set image.tag=tf-develop --set istio.corsPolicy.allowOrigins\[0\].exact=https://$ADMIN_HOST --version $CHART_VERSION
 
   echo Installing otpmanager
   helm -n $NS install otpmanager mosip/otpmanager --set image.repository=technogovstack/kernel-otpmanager-service --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
