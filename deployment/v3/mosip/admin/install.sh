@@ -29,7 +29,7 @@ function installing_admin() {
   kubectl -n $NS apply -f admin-proxy.yaml
 
   echo Installing admin hotlist service.
-  helm -n $NS install admin-hotlist mosip/admin-hotlist --set image.repository=tfgovstackdev/admin-hotlist --set image.tag=tf-develop --version $CHART_VERSION
+  helm -n $NS install admin-hotlist mosip/admin-hotlist --set image.repository=tfgovstackdev/hotlist-service --set image.tag=tf-develop --version $CHART_VERSION
 
   echo Installing admin service. Will wait till service gets installed.
   helm -n $NS install admin-service mosip/admin-service --set image.repository=technogovstack/admin-service --set image.tag=release-1.2.0.1.1 --set istio.corsPolicy.allowOrigins\[0\].prefix=https://$ADMIN_HOST --wait --version $CHART_VERSION
