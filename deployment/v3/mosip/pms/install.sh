@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=pms
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 PMP_UI_CHART_VERSION=12.0.1-B2
 
@@ -21,9 +21,9 @@ function installing_pms() {
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   INTERNAL_API_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-api-internal-host})
   PMP_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-pmp-host})

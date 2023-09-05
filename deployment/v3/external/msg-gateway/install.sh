@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=msg-gateways
+NS=idbb-msg-gateways
 
 echo Create $NS namespace
 kubectl create ns $NS

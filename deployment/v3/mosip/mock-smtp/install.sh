@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=mock-smtp
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
@@ -17,9 +17,9 @@ function mock_smtp() {
   kubectl label ns $NS istio-injection=enabled --overwrite
   # helm repo update
 
-  echo "Copy configmaps"
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo "Copy configmaps"
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   SMTP_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-smtp-host})
 

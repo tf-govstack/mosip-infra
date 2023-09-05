@@ -6,13 +6,13 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=kernel
+NS=idbb-kernel
 CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
 kubectl create ns $NS
 
-function installing_kernel() {
+  function installing_kernel() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update

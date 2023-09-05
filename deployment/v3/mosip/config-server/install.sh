@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=config-server
+NS=idbb-config-server
 CHART_VERSION=12.0.1-B3
 
 read -p "Is conf-secrets module installed?(Y/n) " yn

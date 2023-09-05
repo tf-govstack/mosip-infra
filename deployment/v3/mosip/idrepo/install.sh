@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=idrepo
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
@@ -17,9 +17,9 @@ function installing_idrepo() {
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   echo Running salt generator job
   helm -n $NS install idrepo-saltgen  mosip/idrepo-saltgen --set image.repository=technogovstack/id-repository-salt-generator --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION --wait --wait-for-jobs

@@ -6,13 +6,13 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=landing-page
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 
 echo Create $NS namespace
 kubectl create ns $NS
 
-function landing_page() {
+  function landing_page() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update

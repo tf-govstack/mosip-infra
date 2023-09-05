@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=mosip-file-server
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 
 echo Create $NS namespace
@@ -17,9 +17,9 @@ function installing_mfs() {
   kubectl label ns $NS istio-injection=disabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   FILESERVER_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-api-host})
   API_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-api-host})
@@ -28,7 +28,7 @@ function installing_mfs() {
 
   kubectl -n $NS --ignore-not-found=true delete configmap mosip-file-server
   kubectl -n $NS --ignore-not-found=true delete secret keycloak-client-secret
-  KEYCLOAK_CLIENT_SECRET=$( kubectl -n keycloak get secrets keycloak-client-secrets -o yaml | awk '/mosip_regproc_client_secret: /{print $2}' | base64 -d )
+  KEYCLOAK_CLIENT_SECRET=$( kubectl -n idbb-keycloak get secrets keycloak-client-secrets -o yaml | awk '/mosip_regproc_client_secret: /{print $2}' | base64 -d )
 
   echo Install mosip-file-server. This may take a few minutes ..
   helm -n $NS install mosip-file-server mosip/mosip-file-server      \

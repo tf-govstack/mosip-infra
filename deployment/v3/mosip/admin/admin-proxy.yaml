@@ -90,7 +90,7 @@ data:
             listen 8080;
 
             location /v1/masterdata {
-                proxy_pass                      http://masterdata.kernel;
+                proxy_pass                      http://masterdata.idbb-kernel;
                 proxy_http_version              1.1;
                 proxy_set_header                Upgrade $http_upgrade;
                 proxy_set_header                Connection "upgrade";
@@ -103,7 +103,7 @@ data:
             }
 
             location /v1/keymanager {
-                proxy_pass                      http://keymanager.keymanager;
+                proxy_pass                      http://keymanager.idbb-kernel;
                 proxy_http_version              1.1;
                 proxy_set_header                Upgrade $http_upgrade;
                 proxy_set_header                Connection "upgrade";

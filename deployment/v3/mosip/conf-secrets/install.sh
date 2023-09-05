@@ -6,13 +6,13 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=conf-secrets
+NS=idbb-conf-secrets
 CHART_VERSION=12.0.1-B3
 
 echo Create $NS namespace
 kubectl create ns $NS
 
-function config_secrets() {
+  function config_secrets() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update

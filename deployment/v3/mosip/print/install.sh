@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 
-NS=print
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
@@ -18,9 +18,9 @@ function installing_print() {
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   echo Installing print service
   helm -n $NS install print-service mosip/print-service --set image.repository=technogovstack/print --set image.tag=develop --wait --version $CHART_VERSION

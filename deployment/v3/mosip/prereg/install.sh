@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=prereg
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
@@ -19,9 +19,9 @@ function installing_prereg() {
   kubectl label ns $NS istio-injection=disabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   API_HOST=`kubectl get cm global -o jsonpath={.data.mosip-api-host}`
   PREREG_HOST=`kubectl get cm global -o jsonpath={.data.mosip-prereg-host}`

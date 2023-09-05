@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=packetmanager
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
@@ -17,9 +17,9 @@ function installing_packetmanager() {
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   echo Installing packetmanager
   helm -n $NS install packetmanager mosip/packetmanager --set image.repository=technogovstack/commons-packet-service --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION

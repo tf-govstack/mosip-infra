@@ -6,21 +6,21 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=regproc
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 SALTGEN_CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
 kubectl create ns $NS
 
-function installing_regproc() {
+  function installing_regproc() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   echo Running regproc-salt job
   helm -n $NS install regproc-salt mosip/regproc-salt --set image.repository=technogovstack/kernel-salt-generator --set image.tag=release-1.2.0.1.1 --version $SALTGEN_CHART_VERSION

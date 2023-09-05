@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=regclient
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 
 ## GENERATE KEYSTORE PASSWORD
@@ -31,9 +31,9 @@ function installing_regclient() {
   kubectl -n $NS delete --ignore-not-found=true cm regclient-certs
   kubectl -n $NS create cm regclient-certs --from-file=./certs/
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   REGCLIENT_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-regclient-host})
   INTERNAL_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-api-internal-host})

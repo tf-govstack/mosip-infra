@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=resident
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 MIMOTO_CHART_VERSION=0.9
 RESIDENT_UI_CHART_VERSION=0.0.1
@@ -19,13 +19,13 @@ function installing_resident() {
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
-  echo Copy secrets
-  sed -i 's/\r$//' copy_secrets.sh
-  ./copy_secrets.sh
+#  echo Copy secrets
+#  sed -i 's/\r$//' copy_secrets.sh
+#  ./copy_secrets.sh
 
   API_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-api-internal-host})
   RESIDENT_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-resident-host})

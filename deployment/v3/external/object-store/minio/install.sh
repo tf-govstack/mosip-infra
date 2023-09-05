@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=minio
+NS=idbb-minio
 
 echo Create $NS namespace
 kubectl create ns $NS
@@ -14,7 +14,7 @@ kubectl label ns $NS istio-injection=enabled --overwrite
 
 function installing_minio() {
   echo Installing minio
-  helm -n minio install minio mosip/minio --version 10.1.6 -f values.yaml
+  helm -n $NS install minio mosip/minio --version 10.1.6 -f values.yaml
 
   echo Installing gateways and virtualservice
   EXTERNAL_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-minio-host})

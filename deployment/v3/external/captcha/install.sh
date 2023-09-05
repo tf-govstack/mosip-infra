@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=captcha
+NS=idbb-captcha
 PREREG_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-prereg-host})
 RESIDENT_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-resident-host})
 ESIGNET_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-esignet-host})
@@ -15,7 +15,7 @@ ESIGNET_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-esignet-host})
 echo Create $NS namespace
 kubectl create ns $NS
 
-function Prereg_Captcha() {
+  function Prereg_Captcha() {
   echo Please enter the recaptcha admin site key for domain $PREREG_HOST
   read SITE_KEY
   echo Please enter the recaptcha admin secret key for domain $PREREG_HOST

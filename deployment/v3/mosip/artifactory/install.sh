@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=artifactory
+NS=idbb-artifactory
 CHART_VERSION=12.0.1-B3
 
 echo Create $NS namespace

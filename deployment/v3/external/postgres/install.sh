@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=postgres
+NS=idbb-postgres
 
 helm repo update
 echo Create $NS namespace

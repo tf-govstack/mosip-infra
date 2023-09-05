@@ -11,7 +11,7 @@ echo  Please skip this if masterdata is already uploaded.
 read -p "CAUTION: Do you still want to continue(Y/n)" yn
 if [ $yn = "Y" ]
   then
-   NS=masterdata-loader
+   NS=idbb-kernel
    CHART_VERSION=12.0.1-B2
    helm delete masterdata-loader -n $NS
    echo Create $NS namespace
@@ -33,7 +33,7 @@ if [ $yn = "Y" ]
    ./copy_secrets.sh
 
    echo Loading masterdata
-   helm -n $NS install masterdata-loader  mosip/masterdata-loader --set image.repository=technogovstack/masterdata-loader --set image.tag=release-1.2.0.1.1 --set mosipDataGithubBranch=v1.2.0.1-B3 --version $CHART_VERSION --wait
+   helm -n $NS install masterdata-loader  mosip/masterdata-loader --set image.repository=technogovstack/masterdata-loader --set image.tag=release-1.2.0.1.1 --set mosipDataGithubBranch=v1.2.0.1-B3 -f values.yaml --version $CHART_VERSION --wait
 
    else
    break

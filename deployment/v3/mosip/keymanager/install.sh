@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=keymanager
+NS=idbb-kernel
 CHART_VERSION=12.0.1-B2
 
 echo Creating $NS namespace

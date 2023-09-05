@@ -20,7 +20,7 @@ if [ "$flag" = "n" ]; then
   ENABLE_INSECURE='--set onboarding.enableInsecure=true';
 fi
 
-NS=onboarder
+NS=idbb-onboarder
 CHART_VERSION=12.0.1-B3
 
 echo Create $NS namespace
@@ -34,20 +34,18 @@ function installing_onboarder() {
     kubectl label ns $NS istio-injection=disabled --overwrite
     helm repo update
 
-    echo Copy configmaps
+#    echo Copy configmaps
     kubectl -n $NS --ignore-not-found=true delete cm s3
-    sed -i 's/\r$//' copy_cm.sh
-    ./copy_cm.sh
+#    sed -i 's/\r$//' copy_cm.sh
+#    ./copy_cm.sh
 
-    echo Copy secrets
-    sed -i 's/\r$//' copy_secrets.sh
-    ./copy_secrets.sh
+#    echo Copy secrets
+#    sed -i 's/\r$//' copy_secrets.sh
+#    ./copy_secrets.sh
 
     echo Onboarding default partners
     helm -n $NS install partner-onboarder mosip/partner-onboarder \
-    --set image.repository=technogovstack/partner-onboarder \
-    --set image.tag=release-1.2.0.1.2 \
-    --set onboarding.configmaps.s3.s3-host='http://minio.minio:9000' \
+    --set onboarding.configmaps.s3.s3-host='http://minio.idbb-minio:9000' \
     --set onboarding.configmaps.s3.s3-user-key='admin' \
     --set onboarding.configmaps.s3.s3-region='' \
     $ENABLE_INSECURE \
@@ -57,7 +55,7 @@ function installing_onboarder() {
 echo "Reports are moved to S3 under onboarder bucket"
 echo "Please follow the steps as mentioned in the document link below to configure mimoto-keybinding-partner:"
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
-GITHUB_URL="https://github.com/mosip/mosip-infra/blob"
+GITHUB_URL="https://github.com/tf-govstack/mosip-infra/blob"
 FILE_PATH="/deployment/v3/mosip/partner-onboarder/README.md"
 FULL_URL="$GITHUB_URL/$BRANCH_NAME$FILE_PATH#configuration"
 

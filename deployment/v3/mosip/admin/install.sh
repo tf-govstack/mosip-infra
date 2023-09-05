@@ -7,20 +7,20 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=admin
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B2
 
 echo Create $NS namespace
 kubectl create ns $NS
 
-function installing_admin() {
+  function installing_admin() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update
 
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   API_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-api-internal-host})
   ADMIN_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-admin-host})
@@ -32,7 +32,7 @@ function installing_admin() {
   helm -n $NS install admin-hotlist mosip/admin-hotlist --set image.repository=tfgovstackdev/hotlist-service --set image.tag=tf-develop --version $CHART_VERSION
 
   echo Installing admin service. Will wait till service gets installed.
-  helm -n $NS install admin-service mosip/admin-service --set image.repository=technogovstack/admin-service --set image.tag=release-1.2.0.1.1 --set istio.corsPolicy.allowOrigins\[0\].prefix=https://$ADMIN_HOST --wait --version $CHART_VERSION
+  helm -n $NS install admin-service mosip/admin-service --set istio.corsPolicy.allowOrigins\[0\].prefix=https://$ADMIN_HOST --wait --version $CHART_VERSION
 
   echo Installing admin-ui
   helm -n $NS install admin-ui mosip/admin-ui --set image.repository=technogovstack/admin-ui --set image.tag=release-1.2.0.1.1 --set admin.apiUrl=https://$API_HOST/v1/ --set istio.hosts\[0\]=$ADMIN_HOST --version $CHART_VERSION

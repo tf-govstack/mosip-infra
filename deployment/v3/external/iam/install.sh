@@ -5,7 +5,7 @@
 if [ $# -ge 1 ]; then
   export KUBECONFIG=$1
 fi
-NS=keycloak
+NS=idbb-keycloak
 SERVICE_NAME=keycloak
 
 echo Creating $NS namespace

@@ -4,6 +4,6 @@
 
 sed -i 's/\r$//' ../../utils/copy_cm_func.sh
 COPY_UTIL=../../utils/copy_cm_func.sh
-DST_NS=landing-page
+DST_NS=idbb-mosip
 
 $COPY_UTIL configmap global default $DST_NS

@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=ida
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 KEYGEN_CHART_VERSION=12.0.1-B2
 

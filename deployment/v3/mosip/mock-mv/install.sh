@@ -6,16 +6,16 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-NS=abis
+NS=idbb-mosip
 CHART_VERSION=12.0.1-B3
 
 echo Create $NS namespace
 kubectl create ns $NS
 
 function installing_mockmv() {
-  echo Copy configmaps
-  sed -i 's/\r$//' copy_cm.sh
-  ./copy_cm.sh
+#  echo Copy configmaps
+#  sed -i 's/\r$//' copy_cm.sh
+#  ./copy_cm.sh
 
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
