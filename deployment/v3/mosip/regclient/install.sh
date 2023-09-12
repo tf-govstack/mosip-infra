@@ -18,7 +18,7 @@ sed -i 's/\r$//' create-signing-certs.sh
 echo Create $NS namespace
 kubectl create ns $NS
 
-function installing_regclient() {
+  function installing_regclient() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update

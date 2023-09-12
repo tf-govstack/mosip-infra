@@ -12,7 +12,7 @@ echo Create $NS namespace
 kubectl create ns $NS
 kubectl label namespace $NS istio-injection=enabled --overwrite
 
-function installing_Activemq() {
+  function installing_Activemq() {
   echo Updating repos
   helm repo add mosip https://mosip.github.io/mosip-helm
   helm repo update

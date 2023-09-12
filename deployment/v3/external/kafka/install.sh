@@ -12,7 +12,7 @@ CHART_VERSION=0.4.2
 echo Create $NS namespace
 kubectl create ns $NS
 
-function installing_kafka() {
+  function installing_kafka() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
 

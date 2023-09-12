@@ -12,7 +12,7 @@ CHART_VERSION=12.0.1-B3
 echo Create $NS namespace
 kubectl create ns $NS 
 
-function installing_artifactory() {
+  function installing_artifactory() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update

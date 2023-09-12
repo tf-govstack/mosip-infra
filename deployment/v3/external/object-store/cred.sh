@@ -12,7 +12,7 @@ NS=idbb-s3
 echo Create $NS namespace
 kubectl create ns $NS 
 
-  function installing_Cred() {
+function installing_Cred() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
 

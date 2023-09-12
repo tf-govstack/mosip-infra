@@ -16,7 +16,7 @@ PMP_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-pmp-host})
 echo Create $NS namespace
 kubectl create ns $NS
 
-function installing_pms() {
+  function installing_pms() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update

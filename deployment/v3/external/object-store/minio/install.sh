@@ -12,7 +12,7 @@ echo Create $NS namespace
 kubectl create ns $NS
 kubectl label ns $NS istio-injection=enabled --overwrite
 
-function installing_minio() {
+  function installing_minio() {
   echo Installing minio
   helm -n $NS install minio mosip/minio --version 10.1.6 -f values.yaml
 
