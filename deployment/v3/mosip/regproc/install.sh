@@ -50,7 +50,7 @@ function installing_regproc() {
   helm -n $NS install regproc-group4 mosip/regproc-group4 --set image.repository=technogovstack/registration-processor-stage-group-4 --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
 
   echo Installing group5
-  helm -n $NS install regproc-group5 mosip/regproc-group5 --set image.repository=technogovstack/registration-processor-stage-group-5 --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
+  helm -n $NS install regproc-group5 mosip/regproc-group5 --set image.repository=tfgovstackdev/registration-processor-stage-group-5 --set image.tag=tf-develop --version $CHART_VERSION
 
   echo Installing group6
   helm -n $NS install regproc-group6 mosip/regproc-group6 --set image.repository=technogovstack/registration-processor-stage-group-6 --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
@@ -62,7 +62,7 @@ function installing_regproc() {
   helm -n $NS install regproc-trans mosip/regproc-trans --set image.repository=technogovstack/registration-processor-registration-transaction-service --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
 
   echo Installing regproc-notifier
-  helm -n $NS install regproc-notifier mosip/regproc-notifier --set image.repository=technogovstack/registration-processor-notification-service --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
+  helm -n $NS install regproc-notifier mosip/regproc-notifier --set image.repository=tfgovstackdev/registration-processor-notification-service --set image.tag=tf-develop --version $CHART_VERSION
 
   echo Installing regproc-reprocess
   helm -n $NS install regproc-reprocess mosip/regproc-reprocess --set image.repository=technogovstack/registration-processor-reprocessor --set image.tag=release-1.2.0.1.1 --version $CHART_VERSION
