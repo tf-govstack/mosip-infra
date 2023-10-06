@@ -1,0 +1,7 @@
+db:
+  host: "postgres-postgresql.idbb-postgres"
+  port: 5432
+  user: masteruser
+  secret:
+    name: db-common-secrets
+    key: db-dbuser-password
