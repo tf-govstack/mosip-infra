@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function Restarting_pms() {
-  NS=pms
+  NS=idbb-mosip
   kubectl -n $NS rollout restart deploy
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status

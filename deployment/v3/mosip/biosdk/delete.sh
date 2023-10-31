@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_biosdk() {
-  NS=biosdk
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete Biosdk Service helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

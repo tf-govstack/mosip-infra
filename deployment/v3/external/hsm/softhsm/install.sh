@@ -13,7 +13,7 @@ CHART_VERSION=12.0.1-B2
 echo Create $NS namespaces
 kubectl create ns $NS
 
-  function installing_softhsm() {
+function installing_softhsm() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   helm repo update

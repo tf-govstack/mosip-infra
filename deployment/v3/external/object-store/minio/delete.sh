@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_Minio() {
-  NS=minio
+  NS=idbb-minio
   while true; do
       read -p "Are you sure you want to delete minio helm charts? Note: this will erase your object store data.(Y/n) " yn
       if [ $yn = "Y" ]

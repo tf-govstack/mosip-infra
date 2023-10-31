@@ -8,7 +8,7 @@ fi
 
 
 function deleting_kernel() {
-  NS=kernel
+  NS=idbb-kernel
   while true; do
       read -p "Are you sure you want to delete all kernel helm charts?(Y/n) " yn
       if [ $yn = "Y" ]

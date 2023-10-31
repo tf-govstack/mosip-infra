@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function config_server() {
-  NS=config-server
+  NS=idbb-config-server
   while true; do
       read -p "Are you sure you want to delete config-server helm charts?(Y/n) " yn
       if [ $yn = "Y" ]

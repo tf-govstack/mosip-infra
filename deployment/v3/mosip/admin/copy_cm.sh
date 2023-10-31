@@ -3,7 +3,7 @@
 # DST_NS: Destination namespace 
 
 COPY_UTIL=../../utils/copy_cm_func.sh
-DST_NS=admin
+DST_NS=idbb-mosip
 
 $COPY_UTIL configmap global default $DST_NS 
 $COPY_UTIL configmap artifactory-share idbb-artifactory $DST_NS 

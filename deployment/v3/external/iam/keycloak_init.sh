@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
   export KUBECONFIG=$1
 fi
 
-  function initialize_keycloak() {
+function initialize_keycloak() {
   NS=idbb-keycloak
   CHART_VERSION=12.0.1-B3
 

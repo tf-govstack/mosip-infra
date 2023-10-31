@@ -2,7 +2,7 @@
 # Uninstalls all regproc helm charts
 
 function deleting_regproc() {
-  NS=regproc
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete all regproc helm charts?(Y/n) " yn
       if [ $yn = "Y" ]

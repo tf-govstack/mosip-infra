@@ -12,7 +12,7 @@ CHART_VERSION=12.0.1-B2
 echo Creating $NS namespace
 kubectl create ns $NS
 
-  function installing_keymanager() {
+function installing_keymanager() {
   echo Istio label
   kubectl label ns $NS istio-injection=enabled --overwrite
   kubectl apply -n $NS -f idle_timeout_envoyfilter.yaml

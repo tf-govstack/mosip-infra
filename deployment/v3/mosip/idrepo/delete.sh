@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_idrepo() {
-  NS=idrepo
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete idrepo helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

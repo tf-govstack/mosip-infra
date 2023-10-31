@@ -12,7 +12,7 @@ CHART_VERSION=12.0.1-B3
 echo Create $NS namespace
 kubectl create ns $NS
 
-  function installing_mockmv() {
+function installing_mockmv() {
 #  echo Copy configmaps
 #  sed -i 's/\r$//' copy_cm.sh
 #  ./copy_cm.sh

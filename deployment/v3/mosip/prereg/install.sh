@@ -12,7 +12,7 @@ CHART_VERSION=12.0.1-B2
 echo Create $NS namespace
 kubectl create ns $NS
 
-  function installing_prereg() {
+function installing_prereg() {
   echo Istio label
   ## TODO: Istio proxy disabled for now as prereui does not come up if
   ## envoy filter container gets installed after prereg container.

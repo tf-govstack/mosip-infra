@@ -11,7 +11,7 @@ SERVICE_NAME=keycloak
 echo Creating $NS namespace
 kubectl create ns $NS
 
-  function installing_keycloak() {
+function installing_keycloak() {
   echo Istio label
   ## TODO: enable istio injection after testing well.
   kubectl label ns $NS istio-injection=disabled --overwrite

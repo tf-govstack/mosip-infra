@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_packetmanager() {
-  NS=packetmanager
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete packetmanager helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

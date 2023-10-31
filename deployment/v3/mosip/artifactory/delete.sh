@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_artifactory() {
-  NS=artifactory
+  NS=idbb-artifactory
   while true; do
       read -p "Are you sure you want to delete artifactory helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

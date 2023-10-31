@@ -2,7 +2,7 @@
 # Uninstalls mock ABIS
 
 function deleting_abis() {
-  NS=abis
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete mock ABIS helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

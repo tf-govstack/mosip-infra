@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_postgres() {
-  NS=postgres
+  NS=idbb-postgres
   while true; do
       read -p "CAUTION: PVC, PV will get deleted. If your PV is not in 'Retain' mode all data will be lost. Are you sure ? Y/n ?" yn
       if [ $yn = "Y" ]

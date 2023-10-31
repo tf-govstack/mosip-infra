@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_mfs() {
-  NS=mosip-file-server
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete mosip-file-server helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

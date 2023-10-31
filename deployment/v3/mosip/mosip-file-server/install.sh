@@ -12,7 +12,7 @@ CHART_VERSION=12.0.1-B3
 echo Create $NS namespace
 kubectl create ns $NS
 
-  function installing_mfs() {
+function installing_mfs() {
   echo Istio label Disabled
   kubectl label ns $NS istio-injection=disabled --overwrite
   helm repo update
