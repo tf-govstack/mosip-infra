@@ -8,7 +8,7 @@ fi
 
 
 function Restarting_prereg() {
-  NS=prereg
+  NS=idbb-mosip
   kubectl -n $NS rollout restart deploy
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status

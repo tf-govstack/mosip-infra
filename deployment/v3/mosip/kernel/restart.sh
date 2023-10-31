@@ -6,7 +6,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function Restarting_kernel() {
-  NS=kernel
+  NS=idbb-kernel
   kubectl -n $NS rollout restart deploy
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status

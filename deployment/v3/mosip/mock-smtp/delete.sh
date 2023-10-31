@@ -2,7 +2,7 @@
 # Uninstalls mock smtp
 
 function mock_smtp() {
-  NS=mock-smtp
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete mock smtp helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

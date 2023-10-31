@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_datashare() {
-  NS=datashare
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete datashare helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

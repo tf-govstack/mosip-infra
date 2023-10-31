@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_pms() {
-  NS=pms
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete all pms helm charts?(Y/n) " yn
       if [ $yn = "Y" ]

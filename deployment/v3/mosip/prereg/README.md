@@ -37,5 +37,5 @@ On a browser open  `https://<prereg ui domain>/pre-registration-ui/`. Example `h
     ```
 - Apply the envoyfilter in the prereg namespace.
   ```
-  kubectl apply -n prereg -f rate-control-envoyfilter.yaml
+  kubectl apply -n idbb-mosip -f rate-control-envoyfilter.yaml
   ```

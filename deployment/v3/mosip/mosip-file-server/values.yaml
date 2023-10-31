@@ -1,0 +1,5 @@
+mosipfileserver:
+  configmaps:
+    AUTHMANAGER_URL: http://authmanager.idbb-kernel
+    KEYMANAGER_URL: http://keymanager.idbb-kernel
+    IDA_INTERNAL_URL: http://ida-internal.idbb-mosip

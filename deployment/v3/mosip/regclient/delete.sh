@@ -7,7 +7,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function deleting_regclient() {
-  NS=regclient
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete regclient helm chart?(Y/n) " yn
       if [ $yn = "Y" ]

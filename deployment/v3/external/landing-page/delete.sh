@@ -1,7 +1,7 @@
 #!/bin/bash
 # Uninstalls landing page
 function landing_page() {
-  NS=landing-page
+  NS=idbb-mosip
   while true; do
       read -p "Are you sure you want to delete landing page chart?(Y/n) " yn
       if [ $yn = "Y" ]

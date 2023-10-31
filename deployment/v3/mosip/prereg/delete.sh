@@ -6,14 +6,14 @@ function deleting_prereg() {
       read -p "Are you sure you want to delete all prereg helm charts?(Y/n) " yn
       if [ $yn = "Y" ]
         then
-          kubectl -n prereg delete -f rate-control-envoyfilter.yaml
-          helm -n prereg delete prereg-gateway
-          helm -n prereg delete prereg-captcha
-          helm -n prereg delete prereg-application
-          helm -n prereg delete prereg-batchjob
-          helm -n prereg delete prereg-booking
-          helm -n prereg delete prereg-datasync
-          helm -n prereg delete prereg-ui
+          kubectl -n idbb-mosip delete -f rate-control-envoyfilter.yaml
+          helm -n idbb-mosip delete prereg-gateway
+          helm -n idbb-mosip delete prereg-captcha
+          helm -n idbb-mosip delete prereg-application
+          helm -n idbb-mosip delete prereg-batchjob
+          helm -n idbb-mosip delete prereg-booking
+          helm -n idbb-mosip delete prereg-datasync
+          helm -n idbb-mosip delete prereg-ui
           break
         else
           break

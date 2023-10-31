@@ -3,6 +3,6 @@
 # DST_NS: Destination namespace
 
 COPY_UTIL=../../utils/copy_cm_func.sh
-DST_NS=mosip-file-server
+DST_NS=idbb-mosip
 
-$COPY_UTIL configmap config-server-share config-server $DST_NS
+$COPY_UTIL configmap config-server-share idbb-config-server $DST_NS

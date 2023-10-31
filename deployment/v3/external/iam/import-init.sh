@@ -8,7 +8,7 @@ if [ $# -ge 1 ] ; then
 fi
 
 function import_init() {
-  NS=keycloak
+  NS=idbb-keycloak
   CHART_VERSION=12.0.1-B2
 
   helm repo add mosip https://mosip.github.io/mosip-helm

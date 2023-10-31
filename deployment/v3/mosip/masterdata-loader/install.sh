@@ -32,7 +32,7 @@ if [ $yn = "Y" ]
    sed -i 's/\r$//' copy_secrets.sh
    ./copy_secrets.sh
 
-   echo Loading masterdata
+echo Loading masterdata
    helm -n $NS install masterdata-loader  mosip/masterdata-loader --set image.repository=technogovstack/masterdata-loader --set image.tag=release-1.2.0.1.1 --set mosipDataGithubBranch=v1.2.0.1-B3 -f values.yaml --version $CHART_VERSION --wait
 
    else
