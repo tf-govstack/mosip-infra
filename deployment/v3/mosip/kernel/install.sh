@@ -22,32 +22,32 @@ function installing_kernel() {
   ./copy_cm.sh
 
   echo Installing authmanager
-  helm -n $NS install authmanager mosip/authmanager --version $CHART_VERSION 
+  helm -n $NS install authmanager tf-govstack/authmanager --version $CHART_VERSION
 
   echo Installing auditmanager
-  helm -n $NS install auditmanager mosip/auditmanager --version $CHART_VERSION
+  helm -n $NS install auditmanager tf-govstack/auditmanager --version $CHART_VERSION
 
   echo Installing idgenerator
-  helm -n $NS install idgenerator mosip/idgenerator --version $CHART_VERSION
+  helm -n $NS install idgenerator tf-govstack/idgenerator --version $CHART_VERSION
 
   ADMIN_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-admin-host})
   echo Installing masterdata and allowing Admin UI to access masterdata services.
-  helm -n $NS install masterdata mosip/masterdata  --set istio.corsPolicy.allowOrigins\[0\].exact=https://$ADMIN_HOST  --version $CHART_VERSION
+  helm -n $NS install masterdata tf-govstack/masterdata  --set istio.corsPolicy.allowOrigins\[0\].exact=https://$ADMIN_HOST  --version $CHART_VERSION
 
   echo Installing otpmanager
-  helm -n $NS install otpmanager mosip/otpmanager --version $CHART_VERSION
+  helm -n $NS install otpmanager tf-govstack/otpmanager --version $CHART_VERSION
 
   echo Installing pridgenerator
-  helm -n $NS install pridgenerator mosip/pridgenerator --version $CHART_VERSION
+  helm -n $NS install pridgenerator tf-govstack/pridgenerator --version $CHART_VERSION
 
   echo Installing ridgenerator
-  helm -n $NS install ridgenerator mosip/ridgenerator --version $CHART_VERSION
+  helm -n $NS install ridgenerator tf-govstack/ridgenerator --version $CHART_VERSION
 
   echo Installing syncdata
-  helm -n $NS install syncdata mosip/syncdata --version $CHART_VERSION
+  helm -n $NS install syncdata tf-govstack/syncdata --version $CHART_VERSION
 
   echo Installing notifier
-  helm -n $NS install notifier mosip/notifier --version $CHART_VERSION
+  helm -n $NS install notifier tf-govstack/notifier --version $CHART_VERSION
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
 

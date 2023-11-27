@@ -9,4 +9,4 @@ For on-prem, install [minio](minio/README.md) which is S3 API compliant object s
 For AWS, create [S3 credentials](s3/README.md)
 
 ## Configuration
-Configuration parameters for object store are located in [application-default.properties](https://github.com/mosip/mosip-config/blob/develop3-v3/application-default.properties). The paramemters are automatically configured in this installation.  However, in production you need to point to your object store installation.
+Configuration parameters for object store are located in [application-default.properties](https://github.com/tf-govstack/mosip-config/blob/develop3-v3/application-default.properties). The paramemters are automatically configured in this installation.  However, in production you need to point to your object store installation.

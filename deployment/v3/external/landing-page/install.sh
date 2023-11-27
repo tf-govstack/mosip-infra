@@ -43,7 +43,7 @@ function landing_page() {
   SMTP=$(kubectl get cm global -o jsonpath={.data.mosip-smtp-host})
 
   echo Installing landing page
-  helm -n $NS install landing-page mosip/landing-page --version $CHART_VERSION  \
+  helm -n $NS install landing-page tf-govstack/landing-page --version $CHART_VERSION  \
   --set landing.version=$VERSION \
   --set landing.name=$NAME \
   --set landing.api=$API \

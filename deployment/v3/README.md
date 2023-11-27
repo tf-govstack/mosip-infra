@@ -10,11 +10,11 @@ We provide reference implementation of a Kubernetes based **production grade** d
 
 ## Installation
 Following install sequence is recommended:
-* [Kubernetes infra](https://github.com/mosip/k8s-infra)
+* [Kubernetes infra](https://github.com/tf-govstack/k8s-infra)
 * [External components](external/README.md)
-* [MOSIP services](mosip/README.md)
+* [MOSIP services](tf-govstack/README.md)
 * [Testrig](testrig/README.md)
-* [Reporting](https://github.com/mosip/reporting/tree/develop)
+* [Reporting](https://github.com/tf-govstack/reporting/tree/develop)
 
 ## Production hardening
 Refer to [production hardening checklist](docs/production-checklist.md).

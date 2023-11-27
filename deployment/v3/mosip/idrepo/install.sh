@@ -22,19 +22,19 @@ function installing_idrepo() {
   ./copy_cm.sh
 
   echo Running salt generator job
-  helm -n $NS install idrepo-saltgen  mosip/idrepo-saltgen --version $CHART_VERSION --wait --wait-for-jobs
+  helm -n $NS install idrepo-saltgen  tf-govstack/idrepo-saltgen --version $CHART_VERSION --wait --wait-for-jobs
 
   echo Running credential
-  helm -n $NS install credential mosip/credential --version $CHART_VERSION
+  helm -n $NS install credential tf-govstack/credential --version $CHART_VERSION
 
   echo Running credential request service
-  helm -n $NS install credentialrequest mosip/credentialrequest --version $CHART_VERSION
+  helm -n $NS install credentialrequest tf-govstack/credentialrequest --version $CHART_VERSION
 
   echo Running identity service
-  helm -n $NS install identity mosip/identity --version $CHART_VERSION
+  helm -n $NS install identity tf-govstack/identity --version $CHART_VERSION
 
   echo Running vid service
-  helm -n $NS install vid mosip/vid --version $CHART_VERSION
+  helm -n $NS install vid tf-govstack/vid --version $CHART_VERSION
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
   echo Installed idrepo services
