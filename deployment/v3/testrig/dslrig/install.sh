@@ -84,7 +84,7 @@ function installing_dslrig() {
 
 
   echo Installing dslrig
-  helm -n $NS install dslorchestrator mosip/dslorchestrator \
+  helm -n $NS install dslorchestrator tf-govstack/dslorchestrator \
   --set crontime="0 $time * * *" \
   --version $CHART_VERSION \
   --set dslorchestrator.configmaps.s3.s3-host='http://minio.minio:9000' \
@@ -99,7 +99,7 @@ function installing_dslrig() {
   --set dslorchestrator.configmaps.dslorchestrator.packetUtilityBaseUrl="$packetUtilityBaseUrl" \
   --set dslorchestrator.configmaps.dslorchestrator.LANG_CODE="$langcode" \
   --set persistence.nfs.server="$NFS_HOST" \
-  --set persistence.nfs.path="/srv/nfs/mosip/dsl-scenarios/$ENV_NAME" \
+  --set persistence.nfs.path="/srv/nfs/tf-govstack/dsl-scenarios/$ENV_NAME" \
   $ENABLE_INSECURE
   
   echo Installed dslrig and DSL reports will be moved to S3 under dslreports bucket.

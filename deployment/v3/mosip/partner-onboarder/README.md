@@ -1,7 +1,7 @@
 # Partner Onboarder
 
 ## Overview
-Loads certs for default partners for sandbox. Refer [mosip-onboarding repo](https://github.com/mosip/mosip-onboarding).
+Loads certs for default partners for sandbox. Refer [mosip-onboarding repo](https://github.com/tf-govstack/mosip-onboarding).
 
 ## Install 
 * Set `values.yaml` to run onboarder for specific modules.

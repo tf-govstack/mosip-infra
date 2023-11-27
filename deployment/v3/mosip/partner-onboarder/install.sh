@@ -44,7 +44,7 @@ function installing_onboarder() {
     ./copy_secrets.sh
 
     echo Onboarding default partners
-    helm -n $NS install partner-onboarder mosip/partner-onboarder \
+    helm -n $NS install partner-onboarder tf-govstack/partner-onboarder \
     --set onboarding.configmaps.s3.s3-host='http://minio.minio:9000' \
     --set onboarding.configmaps.s3.s3-user-key='admin' \
     --set onboarding.configmaps.s3.s3-region='' \
@@ -55,8 +55,8 @@ function installing_onboarder() {
 echo "Reports are moved to S3 under onboarder bucket"
 echo "Please follow the steps as mentioned in the document link below to configure mimoto-keybinding-partner:"
 BRANCH_NAME=$(git symbolic-ref --short HEAD)
-GITHUB_URL="https://github.com/mosip/mosip-infra/blob"
-FILE_PATH="/deployment/v3/mosip/partner-onboarder/README.md"
+GITHUB_URL="https://github.com/tf-govstack/mosip-infra/blob"
+FILE_PATH="/deployment/v3/tf-govstack/partner-onboarder/README.md"
 FULL_URL="$GITHUB_URL/$BRANCH_NAME$FILE_PATH#configuration"
 
 echo -e  "\e[1m\e[4m\e[34m\e]8;\a$FULL_URL\e[0m\e[24m\e]8;;\a"

@@ -22,7 +22,7 @@ $ ./install.sh <kubeconfig file for this cluster>
 * To retain data even after PV deletion use a storage class that supports "Retain".  On AWS, you may install `gp2-retain` storage class given here and specify the same while installing Keycloak helm chart.
 
 ## Existing Keycloak
-* In case you have not installed Keycloak by above method, and already have an instance running, make sure Kubernetes configmap and secret is created in namespace `keycloak` as expected in [keycloak-init](https://github.com/mosip/mosip-helm/blob/develop/charts/keycloak-init/values.yaml):
+* In case you have not installed Keycloak by above method, and already have an instance running, make sure Kubernetes configmap and secret is created in namespace `keycloak` as expected in [keycloak-init](https://github.com/tf-govstack/mosip-helm/blob/develop/charts/keycloak-init/values.yaml):
   ```
   keycloak:
     host:
@@ -72,7 +72,7 @@ Automated this as part of keycloak-init
 - Set languages in `Supported Locales`.
 - Click on `Save`.
   ![keycloak-1.png](../../docs/images/keycloak-1.png)
-- Confirm via checking languages in `Mosip` admin login page `https://iam.sandbox.xyz.net/auth/admin/mosip/console/`.
+- Confirm via checking languages in `Mosip` admin login page `https://iam.sandbox.xyz.net/auth/admin/tf-govstack/console/`.
   ![img.png](../../docs/images/keycloak-2.png)
 
 TODO: Automate this as part of keycloak-init

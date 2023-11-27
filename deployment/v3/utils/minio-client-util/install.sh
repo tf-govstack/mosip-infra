@@ -48,7 +48,7 @@ function installing_minio-client-util() {
   fi
 
   echo Installing minio-client-util
-  helm -n $NS install minio-client-util mosip/minio-client-util --set minioclient.retention_days=$S3_RETENTION_DAYS \
+  helm -n $NS install minio-client-util tf-govstack/minio-client-util --set minioclient.retention_days=$S3_RETENTION_DAYS \
   --set crontime="0 $time * * *" \
   --set minioclient.bucket_name=$BUCKET_NAME \
   --version $CHART_VERSION
