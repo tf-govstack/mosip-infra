@@ -33,7 +33,7 @@ if [ $yn = "Y" ]
    ./copy_secrets.sh
 
    echo Loading masterdata
-   helm -n $NS install masterdata-loader  mosip/masterdata-loader --set image.repository=technogovstack/masterdata-loader --set image.tag=release-1.2.0.1.1 --set mosipDataGithubBranch=v1.2.0.1-B3 --version $CHART_VERSION --wait
+   helm -n $NS install masterdata-loader  mosip/masterdata-loader --set image.repository=tfgovstackdev/masterdata-loader --set image.tag=tf-develop --set mosipDataGithubBranch=tf-develop --version $CHART_VERSION --wait
 
    else
    break
