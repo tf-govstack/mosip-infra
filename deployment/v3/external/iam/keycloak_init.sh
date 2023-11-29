@@ -12,6 +12,7 @@ function initialize_keycloak() {
   CHART_VERSION=12.0.1-GB3
 
   helm repo add mosip https://mosip.github.io/mosip-helm
+  helm repo add tf-govstack https://tf-govstack.github.io/mosip-helm
   helm repo update
 
   IAMHOST_URL=$(kubectl get cm global -o jsonpath={.data.mosip-iam-external-host})
