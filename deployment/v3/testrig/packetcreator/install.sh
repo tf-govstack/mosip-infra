@@ -38,7 +38,7 @@ function installing_packetcreator() {
   fi
 
   echo Installing packetcreator
-  helm -n $NS install packetcreator tf-govstack/packetcreator \
+  helm -n $NS install packetcreator mosip/packetcreator \
   $( echo $list ) \
   --set persistence.nfs.server="$NFS_HOST" \
   --wait --version $CHART_VERSION
