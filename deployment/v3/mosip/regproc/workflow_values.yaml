@@ -1,0 +1,7 @@
+springServicePort: 8023
+
+istio:
+  enabled: true
+  gateways:
+    - istio-system/internal
+    - istio-system/public
